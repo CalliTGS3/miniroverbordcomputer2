@@ -32,9 +32,7 @@ basic.forever(function () {
     if (Fahren && input.runningTime() < ZeitstempelEmpfangen + Timeout) {
         basic.setLedColor(0x00ff00)
         basic.clearScreen()
-        LedX = Math.map(LedX, 0, 4, 4, 0)
-        LedY = Math.map(LedY, 0, 4, 4, 0)
-        led.plot(LedX, LedY)
+        led.plot(4 - LedX, 4 - LedY)
         serial.writeValue("L", MotorLinks)
         serial.writeValue("R", MotorRechts)
         motors.dualMotorPower(Motor.A, MotorLinks)
